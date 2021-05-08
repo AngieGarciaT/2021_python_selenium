@@ -7,7 +7,7 @@ from module_06.src.elements.base_page_element import BasePageElement
 
 class SelectElement(BasePageElement):
     """Represents any input text element."""
-    def __init__(self, loc: tuple, wait: WebDriverWait = None, root: WebElement = None):
+    def º__init__(self, loc: tuple, wait: WebDriverWait = None, root: WebElement = None):
         super().__init__(loc, wait, root)
 
     def get_select_instance(self) -> Select:

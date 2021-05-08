@@ -7,6 +7,7 @@ from module_06.src.elements.inventory_items import InventoryItems
 from module_06.src.elements.select_element import SelectElement
 from module_06.src.locators.inventory import InventoryPageLoc
 from module_06.src.pages.base_page import BasePage
+from module_06.src.pages.cart import CartPage
 
 
 _URL = 'https://www.saucedemo.com/inventory.html'
@@ -23,7 +24,7 @@ class InventorySortOptions(Enum):
 class InventoryPage(BasePage):
     """Sauce lab login."""
 
-    def __init__(self, driver: WebDriver, timeout: int = 5):
+    def __init__(self, driver: WebDriver, timeout: int = 8):
         super().__init__(driver, _URL, timeout)
         self.header = Header(self._wait)
         self.products = InventoryItems(InventoryPageLoc.ITEMS, self._wait)
@@ -40,4 +41,12 @@ class InventoryPage(BasePage):
 
     def get_sort_value(self) -> str:
         """Get select sort value."""
+        print(self.__sort_dropdown)
         return self.__sort_dropdown.get_selected_value()
+
+    def open_cart(self):
+        self.header.goto_cart()
+        return CartPage(self._wait._driver, self._wait._timeout)
+
+    def click_cart(self):
+        return self.header.goto_cart()

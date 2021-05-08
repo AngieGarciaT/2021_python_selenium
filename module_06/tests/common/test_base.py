@@ -11,7 +11,9 @@ class TestBase:
         """Setup method"""
         self.driver = get_driver('chrome')
 
+
     def teardown_method(self):
-        """Teardown method"""
+       # Teardown method
         if self.driver:
-            self.driver.close()
+            pass
+            # self.driver.close()
