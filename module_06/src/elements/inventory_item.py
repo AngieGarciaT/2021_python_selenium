@@ -21,3 +21,4 @@ class InventoryItem(InventoryItemMixin):
         """Open product details"""
         self._title.click()
         return InventoryDetailsPage(self._wait._driver, self._wait._timeout)
+
