@@ -10,6 +10,7 @@ from module_06.src.pages.base_page import BasePage
 from module_06.src.pages.cart import CartPage
 
 
+
 _URL = 'https://www.saucedemo.com/inventory.html'
 
 
@@ -50,3 +51,5 @@ class InventoryPage(BasePage):
 
     def click_cart(self):
         return self.header.goto_cart()
+
+

@@ -1,4 +1,4 @@
-"""Implements sauce lab login cart."""
+"""Implements sauce lab cart."""
 from enum import Enum
 from selenium.webdriver.remote.webdriver import WebDriver
 from module_06.src.elements.base_page_element import BasePageElement
@@ -10,6 +10,7 @@ from module_06.src.locators.cart import CartItemLoc
 from module_06.src.pages.base_page import BasePage
 from module_06.src.mixin.InventoryItemMixin import InventoryItemMixin
 from module_06.src.locators.inventory_details import InventoryDetailsLoc
+# from module_06.src.pages.checkout_first import CheckoutFirstStep
 
 
 _URL = 'https://www.saucedemo.com/cart.html'
@@ -39,3 +40,5 @@ class CartPage(InventoryItemMixin, BasePage):
     def checkout(self):
         """Continue with checkout"""
         self._check_btn.click()
+        # return CheckoutFirstStep(self._wait._driver, self._wait._timeout)
+

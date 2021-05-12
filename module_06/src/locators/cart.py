@@ -1,4 +1,4 @@
-"""Locators for inventory items"""
+"""Locators for cart items"""
 from selenium.webdriver.common.by import By
 
 

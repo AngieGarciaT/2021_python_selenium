@@ -1,4 +1,4 @@
-"""Test cases for inventory item"""
+"""Test cases for adding items to cart"""
 from module_06.src.elements.inventory_item import InventoryItem
 from module_06.src.pages.inventory import InventorySortOptions
 from module_06.src.pages.login import LoginPage
@@ -13,7 +13,7 @@ _DEF_PASSWORD = 'secret_sauce'
 class TestCart(TestBase):
 
     def test_adding_products_and_back(self):
-        """Test adding 2 products to cart"""
+        """Test adding 2 products to cart and going back to shopping"""
         login = LoginPage(self.driver)
         login.open()
         inventory_page = login.login(_DEF_USER, _DEF_PASSWORD)
@@ -60,6 +60,9 @@ class TestCart(TestBase):
         print(f'Product description:{cart.get_description()}')
         print('\n')
         print(f'Product Price:{cart.get_price()}')
+
+        cart.checkout()
+
 
 
 
