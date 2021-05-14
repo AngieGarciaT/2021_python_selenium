@@ -34,4 +34,6 @@ class CheckoutFirstStep(InventoryItemMixin, BasePage):
     def back_to_cart(self):
         self._info_checkout.back_to_cart()
 
+    def get_error_msg(self):
+        return self._info_checkout.get_error_msg()
 

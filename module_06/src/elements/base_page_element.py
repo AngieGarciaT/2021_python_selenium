@@ -41,3 +41,7 @@ class BasePageElement:
         """Get value attribute."""
         element = self.wait_until_loaded()
         return element.text
+
+
+
+

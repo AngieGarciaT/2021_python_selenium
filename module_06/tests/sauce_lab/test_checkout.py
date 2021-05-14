@@ -32,6 +32,40 @@ class TestCheckoutStep1(TestBase):
 
         contact_info_page.checkout()
 
+    def test_go_back(self):
+        login = LoginPage(self.driver)
+        login.open()
+        inventory_page = login.login(_DEF_USER, _DEF_PASSWORD)
+        first_item = inventory_page.products[0]
+        first_item: InventoryItem
+        details_page = first_item.open_details()
+        details_page.add_to_cart()
+        cart_page = inventory_page.open_cart()
+        cart_page.checkout()
+        contact_info_page = CheckoutFirstStep(self.driver)
+        contact_info_page.fill_info("Angie", "Garcia", "44540")
+        contact_info_page.back_to_cart()
+
+    def test_error(self):
+        login = LoginPage(self.driver)
+        login.open()
+        inventory_page = login.login(_DEF_USER, _DEF_PASSWORD)
+        first_item = inventory_page.products[0]
+        first_item: InventoryItem
+        details_page = first_item.open_details()
+        details_page.add_to_cart()
+        cart_page = inventory_page.open_cart()
+        cart_page.checkout()
+        contact_info_page = CheckoutFirstStep(self.driver)
+        contact_info_page.checkout()
+        contact_info_page.get_error_msg()
+
+
+
+
+
+
+
 
 
 

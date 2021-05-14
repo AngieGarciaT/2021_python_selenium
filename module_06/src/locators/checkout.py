@@ -11,4 +11,5 @@ class CheckoutItemLoc:
     ZIPCODE = (By.ID, 'postal-code')
     BTN_BACK = (By.XPATH, "//button[contains(@class,'cart_cancel_link')]")
     BTN_CONT = (By.ID, "continue")
+    ERROR_MSG = (By.XPATH, "//*[@class='error-message-container error']")
 

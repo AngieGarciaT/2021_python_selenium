@@ -34,6 +34,8 @@ class TestInventory(TestBase):
         login.open()
         inventory = login.login(_DEF_USER, _DEF_PASSWORD)
         assert inventory.get_label() == 'PRODUCTS', 'Inventory page label should be Products'
+        inventory.display_menu()
+        inventory.click_logout()
 
     def test_sort(self):
         """Test sort products"""
@@ -44,3 +46,13 @@ class TestInventory(TestBase):
         for option in InventorySortOptions:
             inventory.sort_by(option)
             inventory.get_sort_value() == option.value, f'Default sort should be {option.value}'
+
+    def test_logout(self):
+        """Test logout"""
+        login = LoginPage(self.driver)
+        login.open()
+        inventory = login.login(_DEF_USER, _DEF_PASSWORD)
+        inventory.display_menu()
+        inventory.click_logout()
+
+

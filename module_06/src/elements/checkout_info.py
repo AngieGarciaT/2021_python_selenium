@@ -12,7 +12,7 @@ class ContactCheckout:
         self._firstname = BasePageElement(CheckoutItemLoc.F_NAME, wait=wait)
         self._lastname = BasePageElement(CheckoutItemLoc.L_NAME, wait=wait)
         self._postal_code = BasePageElement(CheckoutItemLoc.ZIPCODE, wait=wait)
-        # self._warning_msg = BasePageElement(CheckoutItemLoc.WARNING_MSG, wait=wait)
+        self._error_msg = BasePageElement(CheckoutItemLoc.ERROR_MSG, wait=wait)
         self._cancel_btn = BasePageElement(CheckoutItemLoc.BTN_BACK, wait=wait)
         self._continue_btn = BasePageElement(CheckoutItemLoc.BTN_CONT, wait=wait)
 
@@ -26,4 +26,9 @@ class ContactCheckout:
 
     def back_to_cart(self):
         self._cancel_btn.click()
+
+    def get_error_msg(self):
+        return self._error_msg.get_text()
+
+
 

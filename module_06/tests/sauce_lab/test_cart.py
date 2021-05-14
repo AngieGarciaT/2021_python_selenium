@@ -63,6 +63,26 @@ class TestCart(TestBase):
 
         cart.checkout()
 
+    def test_remove_product(self):
+        login = LoginPage(self.driver)
+        login.open()
+        inventory_page = login.login(_DEF_USER, _DEF_PASSWORD)
+        # Adding 1 product to cart
+        first_item = inventory_page.products[0]
+        first_item: InventoryItem
+        details_page = first_item.open_details()
+        details_page.add_to_cart()
+        details_page.back()
+        inventory_page.products.reload()
+        cart = inventory_page.open_cart()
+        cart.remove_from_cart()
+
+
+
+
+
+
+
 
 
 

@@ -37,6 +37,10 @@ class CartPage(InventoryItemMixin, BasePage):
         """Go back to inventory page"""
         self._back_shop.click()
 
+    def remove_from_cart(self):
+        """Remove product from cart"""
+        self._inv_btn.click()
+
     def checkout(self):
         """Continue with checkout"""
         self._check_btn.click()

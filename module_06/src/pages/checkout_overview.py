@@ -8,13 +8,13 @@ _URL = "https://www.saucedemo.com/checkout-step-two.html"
 
 
 class CheckoutPage(BasePage):
-    def __init__(self, driver: WebDriver, timeout: int = 5):
+    def   __init__(self, driver: WebDriver, timeout: int = 5):
         super().__init__(driver, _URL, timeout)
         self.header = Header(self._wait)
         self.checkout = CheckoutOver(self._wait)
-        # self.items = CartItems(self._wait)
 
-    def cancel_buy(self):
+
+    def cancel_checkout(self):
         self.checkout.cancel_check()
 
     def finish_buy(self):
@@ -23,11 +23,17 @@ class CheckoutPage(BasePage):
     def get_subtotal_text(self)-> str:
         return self.checkout.get_subtotal()
 
+    def get_tax_text(self)-> str:
+        return self.checkout.get_tax()
+
     def get_total_text(self)-> str:
         return self.checkout.get_total()
 
     def get_title_text(self)-> str:
         return self.checkout.get_title()
 
-    def get_success_msg(self)-> str:
-        return self.checkout.get_success_msg()
+    def get_thanks_text(self)-> str:
+        return self.checkout.get_thanks_msg()
+
+    def get_img(self):
+        return self.checkout.get_img_displayed()

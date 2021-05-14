@@ -52,4 +52,10 @@ class InventoryPage(BasePage):
     def click_cart(self):
         return self.header.goto_cart()
 
+    def display_menu(self):
+        self.header.open_menu()
+
+    def click_logout(self):
+        return self.header.logout()
+
 
