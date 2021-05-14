@@ -15,5 +15,4 @@ class TestBase:
     def teardown_method(self):
        # Teardown method
         if self.driver:
-            pass
-            # self.driver.close()
+            self.driver.close()
